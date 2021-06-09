@@ -40,7 +40,7 @@ Toolkit.run(
     const title_passed = (() => {
       if (config.check_title) {
         // check the title matches [PROJECT-1234] somewhere
-        if (!projects.some(project => title.match(createWrappedProjectRegex(project)))) {
+        if (!projects.some(project => title.match(createProjectRegex(project)))) {
           tools.log('PR title ' + title + ' does not contain approved project with format [PROJECT-1234]')
           return false
         }
@@ -106,8 +106,4 @@ function findFailedCommits(projects, commitsInPR, ignoreCase) {
 
 function createProjectRegex(project) {
   return new RegExp(project + '[-_]\\d*')
-}
-
-function createWrappedProjectRegex(project) {
-  return new RegExp('\\[' + project + '-\\d*\\]')
 }
