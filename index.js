@@ -25,6 +25,8 @@ Toolkit.run(
       ...defaults,
       ...(await getConfig(tools.github, CONFIG_FILENAME, repoInfo))
     }
+    
+    tools.log(`Config Projects: ${config.projects}`);
 
     const title = config.ignore_case ?
       pull_request.title.toLowerCase() :
