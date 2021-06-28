@@ -13,6 +13,7 @@ const defaults = {
 
 Toolkit.run(
   async tools => {
+    tools.log(`\n\nReviewing the contest payload: JSON.stringify(tools.context.payload)\n\n`)
     const { repository, pull_request } = tools.context.payload
 
     const repoInfo = {
@@ -41,7 +42,7 @@ Toolkit.run(
       if (config.check_title) {
         // check the title matches [PROJECT-1234] somewhere
         if (!projects.some(project => title.match(createProjectRegex(project)))) {
-          tools.log('PR title ' + title + ' does not contain approved project with format [PROJECT-1234]')
+          tools.log('PR title ' + title + ' does not contain approved project with format ${project-name}-1234')
           return false
         }
       }
