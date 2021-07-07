@@ -13,7 +13,7 @@ const defaults = {
 
 Toolkit.run(
   async tools => {
-    tools.log(`\n\nReviewing the contest payload: JSON.stringify(tools.context.payload)\n\n`)
+    tools.log(`\n\nReviewing the contest payload: ${JSON.stringify(tools.context.payload)}\n\n`)
     const { repository, pull_request } = tools.context.payload
 
     const repoInfo = {
